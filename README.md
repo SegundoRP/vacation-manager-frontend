@@ -46,5 +46,5 @@ Frontend will be available in http://localhost:3000
 
 ## Production
 
-The application is available in production [here](https://vacation-manager-frontend.vercel.app/vacations). It was deployed in Vercel.
+The application is available in production [here](https://vacation-manager-frontend.vercel.app/sign_up). It was deployed in Vercel.
 
