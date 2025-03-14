@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useCallback, useRef  } from 'react';
+import React, { useState, useEffect, useCallback, useRef, Suspense } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useAuth } from '@/app/hooks/useAuth';
 import { useLogout } from '@/app/utils/logout';
@@ -116,7 +116,7 @@ function Pagination({ page, rowsPerPage, totalRows, onPageChange, onRowsPerPageC
   );
 }
 
-export default function Vacations() {
+function VacationsContainer() {
   const searchInputRef = useRef(null);
   const isAuthenticated = useAuth();
   const logout = useLogout();
@@ -295,5 +295,13 @@ export default function Vacations() {
         onClose={() => setOpenModal(false)}
       />
     </Container>
+  );
+}
+
+export default function Vacations() { 
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <VacationsContainer />
+    </Suspense>
   );
 }
