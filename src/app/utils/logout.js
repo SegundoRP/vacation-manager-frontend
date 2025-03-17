@@ -2,6 +2,7 @@ import { useRouter } from 'next/navigation';
 
 export function useLogout() {
   const router = useRouter();
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   const logout = async () => {
     const accessToken = localStorage.getItem('access-token');
@@ -9,7 +10,7 @@ export function useLogout() {
     const uid = localStorage.getItem('uid');
 
     try {
-      const response = await fetch('http://localhost:3000/auth/sign_out', {
+      const response = await fetch(`${apiUrl}/auth/sign_out`, {
         method: 'DELETE',
         headers: {
           'access-token': accessToken,

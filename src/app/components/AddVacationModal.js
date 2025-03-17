@@ -29,10 +29,11 @@ export default function AddVacationModal({ open, onClose }) {
   const accessToken = localStorage.getItem('access-token');
   const client = localStorage.getItem('client');
   const uid = localStorage.getItem('uid');
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     if (open) {
-      fetch("http://localhost:3000/api/v1/users", {
+      fetch(`${apiUrl}/api/v1/users`, {
         headers: {
           'access-token': accessToken,
           'client': client,
@@ -64,7 +65,7 @@ export default function AddVacationModal({ open, onClose }) {
 
   const createVacation = async (formData) => {
     try {
-      const response = await fetch('http://localhost:3000/api/v1/time_off_requests', {
+      const response = await fetch(`${apiUrl}/api/v1/time_off_requests`, {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',

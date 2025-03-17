@@ -11,12 +11,13 @@ export default function SignUp() {
   const [password_confirmation, setPasswordConfirmation] = useState('');
   const [error, setError] = useState('');
   const router = useRouter();
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3000/auth', {
+      const response = await fetch(`${apiUrl}/auth`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password, password_confirmation }),

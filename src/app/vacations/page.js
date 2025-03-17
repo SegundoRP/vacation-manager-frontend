@@ -25,6 +25,8 @@ function fetchVacations(page = 1, perPage = 10, search = '', filters = {}) {
   const accessToken = localStorage.getItem('access-token');
   const client = localStorage.getItem('client');
   const uid = localStorage.getItem('uid');
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  console.log(apiUrl);
 
   // Build the parameters for Ransack
   const params = new URLSearchParams({
@@ -36,7 +38,7 @@ function fetchVacations(page = 1, perPage = 10, search = '', filters = {}) {
     ...(filters.endDate && { 'filters[end_date_lteq]': filters.endDate }), // Filter by end date
   });
 
-  return fetch(`http://localhost:3000/api/v1/time_off_requests?${params.toString()}`, {
+  return fetch(`${apiUrl}/api/v1/time_off_requests?${params.toString()}`, {
     headers: {
       'access-token': accessToken,
       'client': client,
