@@ -1,7 +1,7 @@
 # Vacations manager
 
 Manage the vacations for employees. This repository uses this [API](https://github.com/SegundoRP/vacations_api).
-The frontend is deployed on Vercel, but the backend must be run locally for development.
+The frontend is deployed on Vercel and the api backend is in production with Railway.
 
 ## Requirements
 
@@ -36,15 +36,21 @@ npm install
 yarn install
 ```
 
-4.  Start the server:
+4. Set Up local env for api url in your environment variables:
+
+```bash
+NEXT_PUBLIC_API_URL
+```
+
+5.  Start the server:
 
 ```bash
 npm run dev
 ```
 
-Frontend will be available in http://localhost:3000
+Frontend will be available in http://localhost:3001
 
 ## Production
 
-The application is available in production [here](https://vacation-manager-frontend.vercel.app/vacations). It was deployed in Vercel.
+The application is available in production [here](https://vacation-manager-frontend.vercel.app/vacations). It was deployed in Vercel and it uses an api deployed in Railway.
 
